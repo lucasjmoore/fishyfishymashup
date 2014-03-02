@@ -4,8 +4,12 @@ class ProfilesController < ApplicationController
   	if @user
   		@fish = @user.fish.all
   		render action: :show
-  	else
-  		render file: 'public/404', status: 404, formats: [:html]
+  	#else
+  		#render file: 'public/404', status: 404, formats: [:html]
   	end
+  end
+
+  def profile_params
+      params.require(:user).permit(:user_id, :profile_name)
   end
 end

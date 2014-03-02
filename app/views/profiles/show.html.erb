@@ -1,17 +1,27 @@
 <div>
-	<h1><%= @user.profile_name %>'s bucket</h1>
+	<h1><%= current_user.profile_name %>'s bucket</h1>
 </div>
 
-<% if @fish %>
-	<% @fish.each do |fish| %>
-	 	<div>
+<%#s if @fish %>
+	<%# @fish.each do |fish| %>
+	 	
 	 		<h2>Fish caught:</h2>
-	 		<%= fish %>
+	 		<%#= @fish.fish_type %>
 	 		<br />
-	 	<%= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
-	 	</div>
-	 <% end %>
-<% end %>
-	
+	 	<%#= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
+	 	
+<%# else %>
+	<p> Go catch some fish! </p>
+	 <%# end %>
+<%# end %>
+	<ul>
+	<% if user_signed_in? %>
+		<li><%= link_to "Edit profile", edit_user_registration_path %></li>
+	<% else %>
+		<li><%= link_to "Sign Up", new_user_registration_path %></li>
+		<li><%= link_to "Log In", new_user_session_path %></li>
+	<% end %> 
+</ul>
+
 <%= link_to 'Edit', edit_fish_path(@fish) %> |
 <%= link_to 'Back', fish_index_path %>
