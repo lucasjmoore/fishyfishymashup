@@ -10,9 +10,18 @@
       </ul>
     </div>
   <% end %>
+<fieldset>
+      <legend>Edit <%= resource_name.to_s.humanize %></legend>
+      <%= f.input :user_id, collection: User.all, label_method: :profile_name %>
+      <%= f.input :fish_type %> <!-- make a dropdown -->
+      <%= f.input :length %>
+      <%= f.input :weight %> 
+      <!-- JS geolocation -->
+     
+</fieldset>
 
-  <%= f.input :user_id, collection: User.all, label_method: :profile_name %>
-  <!-- output fish -->
+  
+  <div><%= f.button :submit, "Update" %></div>
   <p> Rainbow fish </p>
   <div>
     <%= f.button :submit, "Add fish" %>
