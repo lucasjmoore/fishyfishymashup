@@ -1,2 +1,17 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="page-header">
+	<h1><%= @user.profile_name %>'s bucket</h1>
+</div>
+
+<% if @fish %>
+	<% @fish.each do |fish| %>
+	 	<div class="well">
+	 		<h2>Fish caught:</h2>
+	 		<%= fish %>
+	 		<br />
+	 	<%= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
+	 	</div>
+	 <% end %>
+<% end %>
+	
+<%= link_to 'Edit', edit_fish_path(@fish) %> |
+<%= link_to 'Back', fish_index_path %>

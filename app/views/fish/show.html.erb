@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1><%= current_user.profile_name %>'s bucket</h1>
+	<h1><%= current_user.profile_name %>'s latest catch</h1>
 </div>
 
 <p id="notice"><%= notice %></p>
@@ -12,26 +12,8 @@
 		<li><%= link_to "Log In", new_user_session_path %></li>
 	<% end %> 
 </ul>
-<br />
 
-	<h2>Fish caught:</h2>
-	<!-- code to call in fish
-	<%# if fish %>
-	 <%# fish.each do |fish| %>
-	 	<div class="well">
-	 		<%#= fish %>
-	 		<br />
-	 		<%#= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
-	 	</div>
-	 <%# end %>
-	 <%# else %>
-	 <p> Yo. Catch some fish. </p>
-	<%# end %>  
 
-<%#= link_to 'Edit', edit_fish_path(fish) %> |
-<%#= link_to 'Back', fish_index_path %>
-
-Need to set up fish id show method first -->
 
 
 
