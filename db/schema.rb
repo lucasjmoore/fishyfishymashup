@@ -11,14 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301202552) do
+ActiveRecord::Schema.define(version: 20140302173253) do
 
   create_table "fish", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "fish_type"
+    t.integer  "length"
+    t.integer  "weight"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
   end
 
+  add_index "fish", ["fish_type"], name: "index_fish_on_fish_type"
   add_index "fish", ["user_id"], name: "index_fish_on_user_id"
 
   create_table "scrapers", force: true do |t|
