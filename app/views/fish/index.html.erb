@@ -4,15 +4,20 @@
 <%= link_to "Caught a new fish!", new_fish_path, class: "btn btn-success" %>
 
 <% @fish.each do |fish| %>
-  <div class="fish">
-    <strong><%= fish.user.profile_name %></strong> caught a
-      <div class="meta">
-        <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
-          <span class="admin">
-            <%= link_to 'Show', fish %>
-            <%= link_to 'Edit', edit_fish_path(fish) %>
-            <%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </span>
+  <div class="fish row">
+    <div class="span1">
+      fish_face
+    </div>
+    <div class="span7">
+      <strong><%= fish.user.profile_name %></strong> caught a
+        <div class="meta">
+          <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
+            <span class="admin">
+              <%= link_to 'Show', fish %>
+              <%= link_to 'Edit', edit_fish_path(fish) %>
+              <%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
+          </div>
       </div>
   </div>
 <% end %>
