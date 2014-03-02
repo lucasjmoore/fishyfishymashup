@@ -1,4 +1,5 @@
 FishyFishy::Application.routes.draw do
+  get "profiles/show"
   resources :fish 
 
   devise_for :users
