@@ -12,14 +12,13 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="#" class="brand"> Shooting Fish in a Barrel</a>
 				<ul class="nav">
-					<li><%= link_to "FISH!", @fish_path %></li>
+					<li class="brand"><%= link_to "Shooting Fish in a Barrel", root_path %></div>
 				</ul>
 				<ul class="nav pull-right">
 					<% if user_signed_in? %>
-						<li><%= link_to current_user.profile_name, edit_user_registration_path %></li>
-						<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+						<li> <%= link_to current_user.profile_name, "#" %></li>
+						<li><%= link_to "Logout", destroy_user_session_path, method: :destroy_user_session_path %></li>
 					<% else %>
 						<li><%= link_to "Sign Up", new_user_registration_path %></li>
 						<li><%= link_to "Log In", new_user_session_path %></li>

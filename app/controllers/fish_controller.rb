@@ -1,4 +1,5 @@
 class FishController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_fish, only: [:show, :edit, :update, :destroy]
 
   # GET /fish
