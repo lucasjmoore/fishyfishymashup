@@ -17,9 +17,11 @@
         <div>
           <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
             <span class="admin">
-              <%= link_to 'Show', fish %>
-              <%= link_to 'Edit', edit_fish_path(fish) %>
-              <%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% if signed_in? && current_user == fish.user %>
+                <%= link_to 'Show', fish %>
+                <%= link_to 'Edit', edit_fish_path(fish) %>
+                <%= link_to 'Delete', fish, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
             </span>
           </div>
       </div>
