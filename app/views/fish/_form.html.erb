@@ -13,9 +13,9 @@
 <fieldset>
       <legend>Edit <%= resource_name.to_s.humanize %></legend>
       <%= f.input :user_id, collection: User.all, label_method: :profile_name %>
-      <%= f.input :fish_type %> <!-- make a dropdown -->
-      <%= f.input :length %>
-      <%= f.input :weight %> 
+      <%#= f.input :fish_type %> <!-- make a dropdown -->
+      <%#= f.input :length %>
+      <%#= f.input :weight %> 
       <!-- JS geolocation -->
      
 </fieldset>
