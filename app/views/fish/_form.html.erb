@@ -114,8 +114,23 @@
           "Zebra Mussel"]
 %>
 
-      <%= f.input :length %>
-      <%= f.input :weight %> 
+      <%= f.input :length %> inches
+      <%= f.input :weight %> lbs
+      <%= f.input :latitude, :id=>"latitude" %>
+      <script type="text/javascript">
+        var latitude= "my@email.com" //can i put position.coords.latitude here?
+        $(document).ready(function(){
+          $("#latitude").val(latitude);
+        });
+      </script>
+
+      <%= f.input :longitude, :id=>"longitude" %>
+      <script type="text/javascript">
+      var longitude= "my@email.com" //can i put position.coords.longitude here?
+        $(document).ready(function(){
+          $("#longitude").val(longitude);
+        });
+      </script>
       </fieldset>
   <div>
     <%= f.button :submit, "Add fish" %>
