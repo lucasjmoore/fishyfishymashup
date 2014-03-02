@@ -9,23 +9,27 @@
   <%= csrf_meta_tags %> 
 </head>
 <body>
-	<div class = "navbar navbar-fixed-top">
-		<div class = "navbar-inner">
-			<div class = "container">
-				<a href="#" class = "brand"> A Link! </a>
-				<ul class = "nav">
-					<li><%#= link_to "FISH!",  %>FISH!</li>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="#" class="brand"> Shooting Fish in a Barrel</a>
+				<ul class="nav">
+					<li><%= link_to "FISH!", @fish_path %></li>
+				</ul>
+				<ul class="nav pull-right">
+					<li><%= link_to current_user.profile_name, "#" %></li>
 				</ul>
 			</div>
 		</div>
 	</div>
-	<div class = "container">
-		<p class = "notice"><%= notice %></p>
-		<p class = "alert"><%= alert %></p>
+	<div class="container">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
 		
 		<%= yield %>
+
 	</div>
-</div>
+
 
 </body>
 </html>
