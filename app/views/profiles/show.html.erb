@@ -15,7 +15,7 @@
 </ul>
 
 <%#= @fish.current_user.where(user_id: user_id) %>
-<% if @current_user.fish.where[user_id: user_id] %>
+<% if @fish.user.where[user_id: user.id] %>
 	<% @fish.each do |fish| %>
 	 	
 	 		<h2>Fish caught:</h2>
