@@ -2,16 +2,29 @@
 <html>
 <head>
   <title>FishyFishy</title>
+  <!-- Default sheets links -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+
+  <%= csrf_meta_tags %> 
 </head>
 <body>
-
-<div class="container">
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<%= yield %>
+	<div class = "navbar navbar-fixed-top">
+		<div class = "navbar-inner">
+			<div class = "container">
+				<a href="#" class = "brand"> A Link! </a>
+				<ul class = "nav">
+					<li><%#= link_to "FISH!",  %>FISH!</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class = "container">
+		<p class = "notice"><%= notice %></p>
+		<p class = "alert"><%= alert %></p>
+		
+		<%= yield %>
+	</div>
 </div>
 
 </body>

@@ -1,25 +1,18 @@
-<h1>Listing fish</h1>
+<div class="page-header">
+  <h1>Every Fish Caught By Everyone Ever</h1>
+</div>
+<%= link_to "Caught a new fish!", new_fish_path, class: "btn btn-success" %>
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @fish.each do |fish| %>
-      <tr>
-        <td><%= link_to 'Show', fish %></td>
-        <td><%= link_to 'Edit', edit_fish_path(fish) %></td>
-        <td><%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Fish', new_fish_path %>
+<% @fish.each do |fish| %>
+  <div class="fish">
+    <strong><%= fish.user.profile_name %></strong> caught a
+      <div class="meta">
+        <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
+          <span class="admin">
+            <%= link_to 'Show', fish %>
+            <%= link_to 'Edit', edit_fish_path(fish) %>
+            <%= link_to 'Destroy', fish, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </span>
+      </div>
+  </div>
+<% end %>
