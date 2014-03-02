@@ -1,20 +1,11 @@
 <div>
-	<h1><%= current_user.profile_name %>'s bucket</h1>
+	<% if current_user.nil? %>
+		<h1> Please <%= link_to "sign up", sign_up_path %> to access this feature. We need experts like you! </h1>
+	<% else %>
+		<h1><%= current_user.profile_name %>'s bucket</h1>
+	<% end %>
 </div>
-
-<%#s if @fish %>
-	<%# @fish.each do |fish| %>
-	 	
-	 		<h2>Fish caught:</h2>
-	 		<%#= @fish.fish_type %>
-	 		<br />
-	 	<%#= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
-	 	
-<%# else %>
-	<p> Go catch some fish! </p>
-	 <%# end %>
-<%# end %>
-	<ul>
+<ul>
 	<% if user_signed_in? %>
 		<li><%= link_to "Edit profile", edit_user_registration_path %></li>
 	<% else %>
@@ -22,6 +13,23 @@
 		<li><%= link_to "Log In", new_user_session_path %></li>
 	<% end %> 
 </ul>
+
+<%#= @fish.current_user.where(user_id: user_id) %>
+<% if @current_user.fish.where[user_id: user_id] %>
+	<% @fish.each do |fish| %>
+	 	
+	 		<h2>Fish caught:</h2>
+	 		<%#= @fish.fish_type %>
+	 		<br />
+	 	<%#= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
+	 <%# fish.count %>
+	 <!-- when fish count = x, show this badge -->
+	 <% end %>
+	 <%# else %>
+	<p> You have no fish. How sad. Go catch some fish! </p>
+<% end %>
+
+
 
 <%= link_to 'Edit', edit_fish_path(@fish) %> |
 <%= link_to 'Back', fish_index_path %>
