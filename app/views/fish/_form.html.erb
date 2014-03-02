@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+
 <fieldset>
       <legend>Edit Fish</legend>
       <%= f.input :user_id, collection: User.all, label_method: :profile_name %>
@@ -115,11 +116,34 @@
 
       <%= f.input :length %>
       <%= f.input :weight %> 
-      <!-- JS geolocation -->
-     
-</fieldset>
+      </fieldset>
   <div>
     <%= f.button :submit, "Add fish" %>
   </div>
+
+     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
+
+  <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+  
+  <script src="http://code.jquery.com/jquery-2.0.2.js" type="text/javascript"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javscript"></script>
+  <script src="http://js.arcgis.com/3.8/"></script>
+  <script src="data/invasive_fish.js"></script>
+ 
+
+  <h1>Fish Names Test</h1>
+  
+  <ul class="test_all_images_wrapper"></ul>
+
+<input type="button" value="Get Geolocation" onclick="getGeoLocation();location.reload();" />
+
+  <ul id="getGeolocation_wrapper"></ul>
+    
+  <div id="map"></div>
+     
 <% end %>
 
