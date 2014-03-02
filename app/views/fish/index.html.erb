@@ -1,16 +1,16 @@
-<div class="page-header">
+<div>
   <h1>Every Fish Caught By Everyone Ever</h1>
 </div>
-<%= link_to "Caught a new fish!", new_fish_path, class: "btn btn-success" %>
+<%= link_to "Caught a new fish!", new_fish_path %>
 
 <% @fish.each do |fish| %>
-  <div class="fish row">
-    <div class="span1">
+  <div>
+    <div><!-- intent to span 1-->
       fish_face
     </div>
-    <div class="span7">
+    <div><!-- intent to span 7-->
       <strong><%= fish.user.profile_name %></strong> caught a
-        <div class="meta">
+        <div>
           <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
             <span class="admin">
               <%= link_to 'Show', fish %>
