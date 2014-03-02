@@ -17,7 +17,7 @@
 				</ul>
 				<ul class="nav pull-right">
 					<% if user_signed_in? %>
-						<li> <%= link_to current_user.profile_name, profiles_path %></li>
+						<li> <%= link_to current_user.profile_name, profiles_show_path(current_user) %></li>
 						<li><%= link_to "Logout", destroy_user_session_path, method: :destroy_user_session_path %></li>
 					<% else %>
 						<li><%= link_to "Sign Up", new_user_registration_path %></li>
