@@ -4,17 +4,24 @@
 
 <p id="notice"><%= notice %></p>
 
-<ul>
-	<% if user_signed_in? %>
-		<li><%= link_to "Edit profile", edit_user_registration_path %></li>
-	<% else %>
-		<li><%= link_to "Sign Up", new_user_registration_path %></li>
-		<li><%= link_to "Log In", new_user_session_path %></li>
-	<% end %> 
-</ul>
+<div> <!-- intent to span 1 -->
+Image here
+<!-- fish image -->
 
+</div>
 
+<div>
 
+<%= @fish.fish_type %><br />
+Length: <%= @fish.length %>  <br />
+Weight: <%= @fish.weight %> <br />
+Location: <!-- JS geolocation info --> <br />
+
+</div>
+
+<div>
+<%= link_to 'Back', fish_index_path %>
+</div>
 
 
 

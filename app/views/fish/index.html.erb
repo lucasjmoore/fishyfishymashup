@@ -9,7 +9,7 @@
       fish_face
     </div>
     <div><!-- intent to span 7-->
-      <strong><%= fish.user.profile_name %></strong> caught a
+      <strong><%= fish.user %></strong> caught a
         <div>
           <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
             <span class="admin">
