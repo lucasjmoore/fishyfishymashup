@@ -25,7 +25,7 @@ class FishController < ApplicationController
   # POST /fish
   # POST /fish.json
   def create
-    @fish = Fish.new(fish_params)
+    @fish = current_user.fish.new(fish_params)
 
     respond_to do |format|
       if @fish.save
@@ -70,6 +70,6 @@ class FishController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def fish_params
-      params.require(:fish).permit(:user_id, :profile_name, :fish_type, :length, :weight, :longitude, :latitude)
+      params.require(:fish).permit(:fish_type, :length, :weight, :longitude, :latitude)
     end
 end

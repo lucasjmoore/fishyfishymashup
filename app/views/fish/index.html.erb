@@ -13,8 +13,12 @@
       Fish image
     </div>
     <div><!-- intent to span 7-->
-      <strong><%#= fish.user.profile_name %></strong> caught a
-      <%= fish.fish_type %>
+      <strong><%= link_to fish.user.profile_name, user_profile_path(fish.user) %></strong> caught a
+      <dl>
+        <%= fish.fish_type %>
+      <%#= fish.length %>
+      <%#= fish.weight %>
+      
         <div>
           <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
             <span class="admin">
