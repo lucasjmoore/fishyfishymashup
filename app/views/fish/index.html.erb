@@ -5,11 +5,15 @@
 
 <% @fish.each do |fish| %>
   <div>
+    <div>
+      <!-- JS geolocation map all fish -->
+    </div>
     <div><!-- intent to span 1-->
-      fish_face
+      Fish image
     </div>
     <div><!-- intent to span 7-->
-      <strong><%= fish.user %></strong> caught a
+      <strong><%= fish.user.profile_name %></strong> caught a
+      <%= fish.fish_type %>
         <div>
           <p><%= link_to time_ago_in_words(fish.created_at) + " ago", fish %>
             <span class="admin">
