@@ -5,23 +5,23 @@
   <!-- Default sheets links -->
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= csrf_meta_tags %> 
 </head>
 <body>
-	<div class="navbar navbar-fixed-top">
-		<div class="navbar-inner">
-			<div class="container">
+	<div class="nav navbar-inverse navbar-fixed-top">
+		<!--<div class="navbar-inner">
+			<div class="container"> -->
 				<ul class="nav">
-					<li class="brand"><%= link_to "Shooting Fish in a Barrel", root_path %></div>
-				</ul>
-				<ul class="nav pull-right">
+					<li class="brand" id="whiteMainTitle"><%= link_to "Shooting Fish in a Barrel", root_path %></div>
+				<!--</ul>
+				<ul class="nav pull-right"> -->
 					<% if user_signed_in? %>
-						<li> <%= link_to current_user.profile_name, user_profile_path(current_user) %></li>
-						<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+						<li class="navMakeSmaller"> <%= link_to current_user.profile_name, user_profile_path(current_user) %></li>
+						<li class="navMakeSmaller"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 					<% else %>
-						<li><%= link_to "Sign Up", new_user_registration_path %></li>
-						<li><%= link_to "Log In", new_user_session_path %></li>
+						<li class="navMakeSmaller"><%= link_to "Sign Up", new_user_registration_path %></li>
+						<li class="navMakeSmaller"><%= link_to "Log In", new_user_session_path %></li>
 					<% end %>
 				</ul>
 			</div>
@@ -34,8 +34,5 @@
 		<%= yield %>
 
 	</div>
-
-
-
 </body>
 </html>

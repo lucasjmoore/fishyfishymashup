@@ -12,6 +12,9 @@
  *= require_tree .
  */
  
+navbar{
+  color: white;
+ }
 body {
 	padding-top: 40px;
 }
@@ -19,9 +22,27 @@ body {
 .alert {
 	margin-top: 10px;
 }
-
+.brand{
+  font-size: 1.6em;
+  color: white;
+}
 #map{
 	width: 250px;
 	height: 250px;
 	background-color: #DDD;
+}
+#whiteMainTitle{
+  width: 60%;
+  color: #FFF;
+}
+li{
+  float: left;
+  display: block;
+}
+
+.navMakeSmaller{
+  width: 20%;
+}
+.whiteText{
+  color: #FFF;
 }

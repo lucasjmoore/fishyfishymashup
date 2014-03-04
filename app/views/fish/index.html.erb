@@ -1,7 +1,9 @@
 <div>
   <h1>Every Fish Caught By Everyone Ever</h1>
 </div>
-<%= link_to "Caught a new fish!", new_fish_path %>
+<div class="btn btn-success whiteText">
+  <%= link_to "Caught a new fish!", new_fish_path %>
+</div>
 
 <% @fish.each do |fish| %>
   <div>
