@@ -13,21 +13,19 @@
 		<li><%= link_to "Log In", new_user_session_path %></li>
 	<% end %> 
 </ul>
+<div>
 
-<%#= @fish.current_user.where(user_id: user_id) %>
+	<% if @user.fish %>
 	<% @user.fish.each do |fish| %>
-	 	
-	 		<h2>Fish caught:</h2>
-	 		<%#= @fish.fish_type %>
-	 		<br />
-	 	<%#= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
-	 <%# fish.count %>
-	 <!-- when fish count = x, show this badge -->
-	 <% end %>
-	 <%# else %>
-	<p> You have no fish. How sad. Go catch some fish! </p>
-
-
-
-<%= link_to 'Edit', edit_fish_path(@fish) %> |
+	 	<h2>Fish caught:</h2>
+	 		<%= fish.fish_type %><br />
+	 		<%= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
+	<%= link_to 'Edit', edit_fish_path(@fish) %> |
 <%= link_to 'Back', fish_index_path %>
+	
+	<% end %>
+	<% else %>
+	<p> You haven't caught any fish. How sad. You should go catch some fish. </p>
+<% end %>
+</div>
+
