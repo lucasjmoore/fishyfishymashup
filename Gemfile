@@ -44,6 +44,8 @@ group :production do
     gem 'pg'
 end
 
+gem 'foundation-rails'
+
 ruby "2.1.0"
 
 # Use ActiveModel has_secure_password

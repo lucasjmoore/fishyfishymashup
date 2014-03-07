@@ -1,38 +1,71 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>FishyFishy</title>
-  <!-- Default sheets links -->
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <%= csrf_meta_tags %> 
-</head>
-<body>
-	<div class="nav navbar-inverse navbar-fixed-top">
-		<!--<div class="navbar-inner">
-			<div class="container"> -->
-				<ul class="nav">
-					<li class="brand" id="whiteMainTitle"><%= link_to "Shooting Fish in a Barrel", root_path %></div>
-				<!--</ul>
-				<ul class="nav pull-right"> -->
-					<% if user_signed_in? %>
-						<li class="navMakeSmaller"> <%= link_to current_user.profile_name, user_profile_path(current_user) %></li>
-						<li class="navMakeSmaller"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-					<% else %>
-						<li class="navMakeSmaller"><%= link_to "Sign Up", new_user_registration_path %></li>
-						<li class="navMakeSmaller"><%= link_to "Log In", new_user_session_path %></li>
-					<% end %>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="container">
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p>
-		
-		<%= yield %>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	</div>
-</body>
+    <title><%= content_for?(:title) ? yield(:title) : "Fishy Fishy" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+  <div class="off-canvas-wrap">
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+
+      <section class="middle tab-bar-section">
+        <h1 class="title", id="whiteMainTitle"><%= link_to "Shooting Fish in a Barrel", root_path %></h1>
+      </section>
+
+      <section class="right-small">
+        <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+      </section>
+    </nav>
+
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li><label>Foundation</label></li>
+        <li><a href="#">The Psychohistorians</a></li>
+        ...
+      </ul>
+    </aside>
+   
+    <aside class="right-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <% if user_signed_in? %>
+          <li><%= link_to current_user.profile_name, profiles_show_path(current_user) %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          ...
+        </ul>
+        <% else %>
+         <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Log In", new_user_session_path %></li>
+       <% end %>
+      </ul>
+    </aside>
+   
+
+    <section class="main-section">
+     
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    
+      <%= yield %>
+ 
+    </section>
+
+    <a class="exit-off-canvas"></a>
+
+    </div>
+  </div>
+  
+      <%= javascript_include_tag "application" %>
+  </body>
 </html>

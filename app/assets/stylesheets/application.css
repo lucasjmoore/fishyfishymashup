@@ -9,12 +9,15 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require foundation_and_overrides
+
  *= require_tree .
  */
  
 navbar{
   color: white;
  }
+
 body {
 	padding-top: 40px;
 }
@@ -22,19 +25,29 @@ body {
 .alert {
 	margin-top: 10px;
 }
+
 .brand{
   font-size: 1.6em;
   color: white;
 }
+
 #map{
 	width: 250px;
 	height: 250px;
 	background-color: #DDD;
 }
+
 #whiteMainTitle{
   width: 60%;
   color: #FFF;
 }
+
+/*#whiteMainTitle a:link{
+  color: #FFF;
+  width: 60%;
+}
+/* how do we make the whiteMainTitle href also white? */
+
 li{
   float: left;
   display: block;
@@ -43,6 +56,7 @@ li{
 .navMakeSmaller{
   width: 20%;
 }
+
 .whiteText{
   color: #FFF;
 }
