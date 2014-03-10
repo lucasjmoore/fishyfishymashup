@@ -5,23 +5,57 @@
 		<h1><%= current_user.profile_name %>'s bucket</h1>
 	<% end %>
 </div>
-<ul>
+
+<div>
 	<% if user_signed_in? %>
-		<li><%= link_to "Edit profile", edit_user_registration_path %></li>
+		<div class="button tiny columns"><%= link_to "Edit profile", edit_user_registration_path, {:style=>'color:#FFF;'} %></div>
 	<% else %>
+	<ul>
 		<li><%= link_to "Sign Up", new_user_registration_path %></li>
 		<li><%= link_to "Log In", new_user_session_path %></li>
+	</ul>
 	<% end %> 
-</ul>
+</div>
+
+
+
 <div>
 
 	<% if @user.fish %>
+
+	<h3>Fish Caught:</h3>
+<table>
+  <thead>
+    <tr>
+      <th width="30%">Fish Type</th>
+      <th width="20%">Stats</th>
+      <th width="10%">TimeStamp</th>
+      <th width="20%">Settings</th>
+    </tr>
+  </thead>
+
+
 	<% @user.fish.each do |fish| %>
-	 	<h2>Fish caught:</h2>
-	 		<%= fish.fish_type %><br />
-	 		<%= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago
-	<%= link_to 'Edit', edit_fish_path(@fish) %> |
-<%= link_to 'Back', fish_index_path %>
+
+	<tr>
+      <td><strong><%= fish.fish_type %></strong></td>
+      <td>
+        <ul>
+          <li><%= fish.length %> inches</li>
+          <li><%= fish.weight %> pounds</li>
+       </td>
+      <td><%= link_to time_ago_in_words(fish.created_at), fish_path(fish) %> ago</td>
+      
+        </ul>
+      </td>
+
+      <td><%= link_to 'Edit', edit_fish_path(@fish) %> |
+<%= link_to 'Back', fish_index_path %></td>
+    
+	 	
+	 		
+	 		
+	
 	
 	<% end %>
 	<% else %>

@@ -40,13 +40,13 @@ group :development, :test do
 end
 
 group :production do
-	gem 'rails_12factor'
-    gem 'pg'
+	#gem 'rails_12factor'
+    gem 'sqlite3'
 end
 
 gem 'foundation-rails'
 
-ruby "2.1.0"
+ruby "2.0.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

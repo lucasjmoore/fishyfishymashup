@@ -12,8 +12,8 @@
   <% end %>
 
 <fieldset>
-      <legend>Edit Fish</legend>
-      
+    <legend>Edit Fish</legend>
+    <div class="large-4 columns ">  
       <%= f.input :fish_type, collection: ["Alcyonidium gelatinosum",
           "Alewife",
           "Allorchestes angusta",
@@ -113,33 +113,38 @@
           "White Perch",
           "Zebra Mussel"]
 %>
+      
+        <%= f.input :length, :placeholder =>"inches"%>
+      
+      <%= f.input :weight, :placeholder =>"lbs" %>
+    </div> <!--end of class"large-4 columns-->
+    <label> Coordinates
 
-      <%= f.input :length %> inches
-      <%= f.input :weight %> lbs
-      <%= f.input :latitude, :id=>"latitude" %>
-      <script type="text/javascript">
-        var latitude= "my@email.com" //can i put position.coords.latitude here?
-        $(document).ready(function(){
-          $("#latitude").val(latitude);
-        });
-      </script>
+      <div class="large-4 columns">
+        <%= f.input :latitude, :placeholder=>"latitude"%>
+        <script type="text/javascript">
+          var latitude= "my@email.com" //can i put position.coords.latitude here?
+          $(document).ready(function(){
+            $("#latitude").val(latitude);
+          });
+        </script>
 
-      <%= f.input :longitude, :id=>"longitude" %>
-      <script type="text/javascript">
-      var longitude= "my@email.com" //can i put position.coords.longitude here?
-        $(document).ready(function(){
-          $("#longitude").val(longitude);
-        });
-      </script>
-      </fieldset>
-  <div>
-    <%= f.button :submit, "Add fish" %>
-  </div>
+        <%= f.input :longitude, :placeholder=>"longitude" %>
+        <script type="text/javascript">
+        var longitude= "my@email.com" //can i put position.coords.longitude here?
+          $(document).ready(function(){
+            $("#longitude").val(longitude);
+          });
+          </script>
+        <!-- </fieldset> -->
+      </div> 
+    </label>
+    
 
      <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
+<!--   <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+ -->
   <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css">
 
   <link rel="stylesheet" type="text/css" href="css/style.css"></link>
@@ -150,15 +155,18 @@
   <script src="data/invasive_fish.js"></script>
  
 
-  <h1>Fish Names Test</h1>
+  <!-- <h1>Fish Names Test</h1> -->
   
   <ul class="test_all_images_wrapper"></ul>
 
-<input type="button" value="Get Geolocation" onclick="getGeoLocation();location.reload();" />
+<input type="button" class="button tiny radius columns" value="Get Geolocation" onclick="getGeoLocation(); location.reload();" />
 
   <ul id="getGeolocation_wrapper"></ul>
     
   <div id="map"></div>
-     
+
+    <%= f.button :submit, "Add fish", :class => 'button success large right radius columns' %>
+  </fieldset>
+
 <% end %>
 

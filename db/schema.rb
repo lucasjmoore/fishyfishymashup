@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140302173253) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "fish", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -27,8 +24,8 @@ ActiveRecord::Schema.define(version: 20140302173253) do
     t.decimal  "longitude"
   end
 
-  add_index "fish", ["fish_type"], name: "index_fish_on_fish_type", using: :btree
-  add_index "fish", ["user_id"], name: "index_fish_on_user_id", using: :btree
+  add_index "fish", ["fish_type"], name: "index_fish_on_fish_type"
+  add_index "fish", ["user_id"], name: "index_fish_on_user_id"
 
   create_table "scrapers", force: true do |t|
     t.datetime "created_at"
@@ -51,7 +48,7 @@ ActiveRecord::Schema.define(version: 20140302173253) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
